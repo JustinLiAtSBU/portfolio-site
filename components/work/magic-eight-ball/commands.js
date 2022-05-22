@@ -20,6 +20,13 @@ const apiMap = {
   randomanime: "tvshows/random?country=JP&genres=Animation",
   randomanimemovie: "movies/random?country=JP&genres=Animation"
 }
+const streamers = [
+  "The one who's always late",
+  "The one with bad connection",
+  "The one whose dog is always barking",
+  "The one who sleeps mid-movie",
+  "The one who never wants to stream",
+]
 
 export const Commands = ({ color }) => {
   const [commandLoading, setCommandLoading] = useState(false)
@@ -28,14 +35,19 @@ export const Commands = ({ color }) => {
 
   const runCommand = async () => {
     setCommandLoading(true)
-    const url = `${host}/${apiMap[selectedCommand]}`
-
-    const res = await fetch(url)
-    if (res.ok) {
-      const data = await res.json()
-      console.log(data)
-      setPopoverContent(data)
+    const content = {}
+    if (selectedCommand === 'whoisstreaming') {
+      content = {
+        title: streamers[Math.floor(Math.random() * streamers.length)]
+      }
+    } else {
+      const url = `${host}/${apiMap[selectedCommand]}`
+      const res = await fetch(url)
+      if (res.ok) {
+        content = await res.json()
+      }
     }
+    setPopoverContent(content);
     setCommandLoading(false)
   }
 

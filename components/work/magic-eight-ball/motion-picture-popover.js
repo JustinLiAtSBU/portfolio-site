@@ -24,11 +24,11 @@ const MotionPicturePopover = ({
   const [isOpen, setIsOpen] = useState(false)
   const close = () => setIsOpen(false)
   const open = () => setIsOpen(true)
-
   const buttonClick = async () => {
     await runCommand()
     open()
   }
+
   return (
     <Popover
       placement='bottom'
@@ -57,21 +57,29 @@ const MotionPicturePopover = ({
           <PopoverArrow />
           <PopoverCloseButton />
           <PopoverBody>
-            <Tag size='sm' variant='subtle' colorScheme='pink'>
-              ⭐️ {content.rating}
-            </Tag>
-            <Tag ml={1} size='sm' variant='subtle' colorScheme='pink'>
-              {content.year}
-            </Tag>
-            <Tag ml={1} size='sm' variant='subtle' colorScheme='pink'>
-              {content.runtime} minutes
-            </Tag>
-            <Text>{content.plot}</Text>
-            <Box
-            // mt={2}
-            >
-              <Image src={content.poster} alt='Motion Picture Image' />
-            </Box>
+            {content.rating &&
+              <Tag size='sm' variant='subtle' colorScheme='pink'>
+                ⭐️ {content.rating}
+              </Tag>
+            }
+            {content.year &&
+              <Tag ml={1} size='sm' variant='subtle' colorScheme='pink'>
+                {content.year}
+              </Tag>
+            }
+            {content.runtime &&
+              <Tag ml={1} size='sm' variant='subtle' colorScheme='pink'>
+                {content.runtime} minutes
+              </Tag>
+            }
+            {content.plot &&
+              <Text>{content.plot}</Text>
+            }
+            {content.poster &&
+              <Box>
+                <Image src={content.poster} alt='Motion Picture Image' />
+              </Box>
+            }
           </PopoverBody>
         </PopoverContent>
       )}
