@@ -23,14 +23,6 @@ export const Technical = ({ color }) => {
           Heroku
         </ListItem>
         <ListItem>
-          <Meta>Movies in Database</Meta>
-          9026
-        </ListItem>
-        <ListItem>
-          <Meta>TV Shows in Database</Meta>
-          1450
-        </ListItem>
-        <ListItem>
           <Meta>Source</Meta>
           <Link
             target="_blank"
