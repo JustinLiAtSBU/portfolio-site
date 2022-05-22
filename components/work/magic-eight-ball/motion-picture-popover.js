@@ -50,7 +50,7 @@ const MotionPicturePopover = ({
         </Button>
       </PopoverTrigger>
       {content && (
-        <PopoverContent color='white' bg='blue.800' borderColor='blue.800' mt={0}>
+        <PopoverContent color='white' bg='blue.800' borderColor='blue.800' mt={-10}>
           <PopoverHeader pt={4} fontWeight='bold' border='0'>
             {content.title}
           </PopoverHeader>

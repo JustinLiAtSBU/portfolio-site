@@ -1,4 +1,4 @@
-import React, { PureComponent, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Heading,
@@ -11,7 +11,7 @@ import {
   Radio,
   Stack,
 } from "@chakra-ui/react"
-import MotionPicturePopover from './motionpicturepopover';
+import MotionPicturePopover from './motion-picture-popover';
 
 const host = "https://magic-eight-ball-spring.herokuapp.com"
 const apiMap = {

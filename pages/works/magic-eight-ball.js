@@ -8,9 +8,9 @@ import {
 import { useColorModeValue } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import Layout from "../../components/layouts/article";
-import Commands from "../../components/work/magiceightball/commands";
-import Statistics from "../../components/work/magiceightball/statistics";
-import Technical from "../../components/work/magiceightball/technical";
+import Commands from "../../components/work/magic-eight-ball/commands";
+import Statistics from "../../components/work/magic-eight-ball/statistics";
+import Technical from "../../components/work/magic-eight-ball/technical";
 
 const MagicEightBall = () => {
   const purple = useColorModeValue('purple', 'purple.200')

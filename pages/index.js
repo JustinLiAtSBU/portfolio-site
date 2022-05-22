@@ -38,7 +38,7 @@ const Page = () => {
         <Section delay={0.1}>
           <Heading as="h3" variant="section-title">Work</Heading>
           <Paragraph>I am currently working on a Discord bot made to solve a minor inconvenience called {' '}
-            <NextLink href="/works/magiceightball">
+            <NextLink href="/works/magic-eight-ball">
               <Link>Magic Eight Ball</Link>
             </NextLink>
           </Paragraph>
