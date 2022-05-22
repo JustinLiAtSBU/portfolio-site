@@ -34,14 +34,9 @@ export const Commands = ({ color }) => {
     if (res.ok) {
       const data = await res.json()
       console.log(data)
-      await sleep(2000);
       setPopoverContent(data)
     }
     setCommandLoading(false)
-  }
-
-  const sleep = (ms) => {
-    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   return (
