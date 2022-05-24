@@ -2,27 +2,25 @@ import { useAnimation, motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { useEffect } from "react"
 
-const sentence = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: {
-      delay: 2.8,
-      staggerChildren: 0.12
+const TextReveal = ({ text, fontSize, stagger }) => {
+  const sentence = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 2.8,
+        staggerChildren: stagger ? stagger : 0.12
+      }
     }
   }
-}
 
-const letter = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0
-  },
-}
-
-
-const TextReveal = ({ text, fontSize }) => {
+  const letter = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0
+    },
+  }
   const controls = useAnimation(sentence)
   const [ref, inView] = useInView()
 
