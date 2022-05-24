@@ -3,7 +3,7 @@ import { Meta } from "../work"
 
 const Skills = ({ color }) => {
   return (
-    <Box h="100vh">
+    <Box h="60vh">
       <Heading color={color} as="h1" fontSize='100px'>
         Skills
       </Heading>

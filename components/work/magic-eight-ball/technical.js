@@ -11,7 +11,7 @@ import ScrollTriggered from "../../layouts/scroll-triggered"
 export const Technical = ({ color }) => {
   return (
     <ScrollTriggered>
-      <Box height="100vh">
+      <Box height="60vh">
         <Heading as="h2" color={color} size='4xl'>
           Technical
         </Heading>
