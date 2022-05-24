@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import {
   Box,
   Heading,
@@ -10,8 +10,11 @@ import {
   RadioGroup,
   Radio,
   Stack,
+  Center,
 } from "@chakra-ui/react"
-import MotionPicturePopover from './motion-picture-popover';
+import MotionPicturePopover from './motion-picture-popover'
+import ScrollTriggered from '../../layouts/scroll-triggered'
+import TextReveal from '../../layouts/text-reveal'
 
 const host = "https://magic-eight-ball-spring.herokuapp.com"
 const apiMap = {
@@ -52,71 +55,75 @@ export const Commands = ({ color }) => {
   }
 
   return (
-    <Box>
-      <Heading as="h2" color={color} size='xl' mt={10}>
-        Commands
-      </Heading>
-      <List fontSize="2xl" mt={5} mb={5}>
-        <ListItem p={1}>
-          <Code fontSize="3xl" mr={2}>$randommovie</Code>
-          Find a random movie
-        </ListItem>
-        <ListItem p={1}>
-          <Code fontSize="3xl" mr={2}>$randomtvshow</Code>
-          Find a random TV show
-        </ListItem>
-        <ListItem p={1}>
-          <Code fontSize="3xl" mr={2}>$randomanime</Code>
-          Find a random anime
-        </ListItem>
-        <ListItem p={1}>
-          <Code fontSize="3xl" mr={2}>$whoistreaming</Code>
-          For those who never stream
-        </ListItem>
-        <ListItem p={1}>
-          <Code fontSize="3xl" mr={2}>$help</Code>
-          To see more commands
-        </ListItem>
-      </List>
-
-      <FormControl
-        as='fieldset'
-        border='2px'
-        borderColor={color}
-        borderRadius="6px"
-        p={3}
-      >
-        <FormLabel as='legend' fontSize="2xl">
-          Run a command
-        </FormLabel>
-        <RadioGroup onChange={setSelectedCommand} value={selectedCommand}>
-          <Stack spacing='12px'>
-            <Radio value='randommovie'>
-              <Code>$randommovie</Code>
-            </Radio>
-            <Radio value='randomtvshow'>
-              <Code>$randomtvshow</Code>
-            </Radio>
-            <Radio value='randomanime'>
-              <Code>$randomanime</Code>
-            </Radio>
-            <Radio value='randomanimemovie'>
-              <Code>$randomanimemovie</Code>
-            </Radio>
-            <Radio value='whoisstreaming'>
-              <Code>$whoisstreaming</Code>
-            </Radio>
-          </Stack>
-        </RadioGroup>
-        <MotionPicturePopover
-          commandLoading={commandLoading}
-          selectedCommand={selectedCommand}
-          runCommand={runCommand}
-          content={popoverContent}
-          color={color}
-        />
-      </FormControl>
-    </Box>
+    <ScrollTriggered>
+      <Box height="100vh">
+        <Heading as="h2" color={color} size='4xl'>
+          Commands
+        </Heading>
+        <List fontSize="2xl" mt={5} mb={5}>
+          <ListItem p={1}>
+            <Code fontSize="3xl" mr={2}>$randommovie</Code>
+            <TextReveal text={"For when you can't decide on a movie"} />
+          </ListItem>
+          <ListItem p={1}>
+            <Code fontSize="3xl" mr={2}>$randomtvshow</Code>
+            <TextReveal text={"For when you need a new TV show to binge"} />
+          </ListItem>
+          <ListItem p={1}>
+            <Code fontSize="3xl" mr={2}>$randomanime</Code>
+            <TextReveal text={"For the weebs that need to watch another anime"} />
+          </ListItem>
+          <ListItem p={1}>
+            <Code fontSize="3xl" mr={2}>$whoistreaming</Code>
+            <TextReveal text={"For those who never stream"} />
+          </ListItem>
+          <ListItem p={1}>
+            <Code fontSize="3xl" mr={2}>$help</Code>
+            <TextReveal text={"To see more commands"} />
+          </ListItem>
+        </List>
+        <Center>
+          <FormControl
+            as='fieldset'
+            border='2px'
+            borderColor={color}
+            borderRadius="6px"
+            w="40vw"
+            p={3}
+          >
+            <FormLabel as='legend' fontSize="2xl">
+              Run a command
+            </FormLabel>
+            <RadioGroup onChange={setSelectedCommand} value={selectedCommand}>
+              <Stack spacing='12px'>
+                <Radio value='randommovie'>
+                  <Code>$randommovie</Code>
+                </Radio>
+                <Radio value='randomtvshow'>
+                  <Code>$randomtvshow</Code>
+                </Radio>
+                <Radio value='randomanime'>
+                  <Code>$randomanime</Code>
+                </Radio>
+                <Radio value='randomanimemovie'>
+                  <Code>$randomanimemovie</Code>
+                </Radio>
+                <Radio value='whoisstreaming'>
+                  <Code>$whoisstreaming</Code>
+                </Radio>
+              </Stack>
+            </RadioGroup>
+            <MotionPicturePopover
+              commandLoading={commandLoading}
+              selectedCommand={selectedCommand}
+              runCommand={runCommand}
+              content={popoverContent}
+              color={color}
+            />
+          </FormControl>
+        </Center>
+      </Box>
+    </ScrollTriggered>
   )
 }
 

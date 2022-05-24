@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import {
   Box,
   Heading,
@@ -6,7 +6,9 @@ import {
   StatLabel,
   StatNumber,
   StatHelpText,
+  Skeleton
 } from "@chakra-ui/react"
+import ScrollTriggered from '../../layouts/scroll-triggered'
 
 const host = "https://magic-eight-ball-spring.herokuapp.com"
 const apiMap = {
@@ -18,10 +20,10 @@ const apiMap = {
 }
 
 export const Statistics = ({ color }) => {
-  const [channels, setChannels] = useState(0)
-  const [movies, setMovies] = useState(0)
-  const [tvShows, setTvShows] = useState(0)
-  const [animes, setAnimes] = useState(0)
+  const [channels, setChannels] = useState(null)
+  const [movies, setMovies] = useState(null)
+  const [tvShows, setTvShows] = useState(null)
+  const [animes, setAnimes] = useState(null)
   const [timestamp, setTimestamp] = useState(null)
 
   useEffect(() => {
@@ -58,55 +60,65 @@ export const Statistics = ({ color }) => {
   }, []);
 
   return (
-    <Box>
-      <Heading as="h2" color={color} size='xl' mt={10}>
-        Statistics
-      </Heading>
-      <Stat
-        p={2}
-        border='2px'
-        borderColor={color}
-        borderRadius="6px"
-        mt={3}
-      >
-        <StatLabel fontSize="xl">Channels using Magic Eight Ball</StatLabel>
-        <StatNumber>{channels}</StatNumber>
-        <StatHelpText fontSize="m">{timestamp}</StatHelpText>
-      </Stat>
-      <Stat
-        p={2}
-        border='2px'
-        borderColor={color}
-        borderRadius="6px"
-        mt={3}
-      >
-        <StatLabel fontSize="xl">Movies in Magic Eight Ball</StatLabel>
-        <StatNumber>{movies}</StatNumber>
-        <StatHelpText fontSize="m">{timestamp}</StatHelpText>
-      </Stat>
-      <Stat
-        p={2}
-        border='2px'
-        borderColor={color}
-        borderRadius="6px"
-        mt={3}
-      >
-        <StatLabel fontSize="xl">TV Shows in Magic Eight Ball</StatLabel>
-        <StatNumber>{tvShows}</StatNumber>
-        <StatHelpText fontSize="m">{timestamp}</StatHelpText>
-      </Stat>
-      <Stat
-        p={2}
-        border='2px'
-        borderColor={color}
-        borderRadius="6px"
-        mt={3}
-      >
-        <StatLabel fontSize="xl">Animes in Magic Eight Ball</StatLabel>
-        <StatNumber>{animes}</StatNumber>
-        <StatHelpText fontSize="m">{timestamp}</StatHelpText>
-      </Stat>
-    </Box >
+    <ScrollTriggered>
+      <Box height="100vh">
+        <Heading as="h2" color={color} size='4xl'>
+          Statistics
+        </Heading>
+        <Skeleton startColor='pink.500' endColor='orange.500' isLoaded={animes !== null}>
+          <Stat
+            p={2}
+            border='2px'
+            borderColor={color}
+            borderRadius="6px"
+            mt={3}
+          >
+            <StatLabel fontSize="xl">Channels using Magic Eight Ball</StatLabel>
+            <StatNumber>{channels}</StatNumber>
+            <StatHelpText fontSize="m">{timestamp}</StatHelpText>
+          </Stat>
+        </Skeleton>
+        <Skeleton startColor='pink.500' endColor='orange.500' isLoaded={animes !== null}>
+          <Stat
+            p={2}
+            border='2px'
+            borderColor={color}
+            borderRadius="6px"
+            mt={3}
+          >
+            <StatLabel fontSize="xl">Movies in Magic Eight Ball</StatLabel>
+            <StatNumber>{movies}</StatNumber>
+            <StatHelpText fontSize="m">{timestamp}</StatHelpText>
+          </Stat>
+        </Skeleton>
+        <Skeleton startColor='pink.500' endColor='orange.500' isLoaded={animes !== null}>
+          <Stat
+            p={2}
+            border='2px'
+            borderColor={color}
+            borderRadius="6px"
+            mt={3}
+          >
+            <StatLabel fontSize="xl">TV Shows in Magic Eight Ball</StatLabel>
+            <StatNumber>{tvShows}</StatNumber>
+            <StatHelpText fontSize="m">{timestamp}</StatHelpText>
+          </Stat>
+        </Skeleton>
+        <Skeleton startColor='pink.500' endColor='orange.500' isLoaded={animes !== null}>
+          <Stat
+            p={2}
+            border='2px'
+            borderColor={color}
+            borderRadius="6px"
+            mt={3}
+          >
+            <StatLabel fontSize="xl">Animes in Magic Eight Ball</StatLabel>
+            <StatNumber>{animes}</StatNumber>
+            <StatHelpText fontSize="m">{timestamp}</StatHelpText>
+          </Stat>
+        </Skeleton>
+      </Box>
+    </ScrollTriggered>
   )
 }
 
