@@ -14,9 +14,23 @@ const Experience = ({ color }) => {
         Experience
       </Heading>
       <Box>
+        <Text fontSize="5xl">Northwestern Mutual</Text>
+        <Text fontSize="2xl">New York, New York</Text>
+        <Text fontSize="2xl">2022 - Present</Text>
+        <List fontSize="xl" p={2}>
+          <ListItem p={1}>
+            <Meta fontSize="md">Stack</Meta>
+            Javascript
+          </ListItem>
+          <ListItem p={1}>
+            Core team
+          </ListItem>
+        </List>
+      </Box>
+      <Box>
         <Text fontSize="5xl">Rightpoint</Text>
         <Text fontSize="2xl">New York, New York</Text>
-        <Text fontSize="2xl">2021 - Present</Text>
+        <Text fontSize="2xl">2021 - 2022</Text>
         <List fontSize="xl" p={2}>
           <ListItem p={1}>
             <Meta fontSize="md">Stack</Meta>
