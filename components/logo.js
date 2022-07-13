@@ -25,11 +25,10 @@ const Logo = () => {
           <Image src='/images/logo.png' width={25} height={25} alt="logo" />
           <Text
             color={useColorModeValue('gray.800', 'whiteAlpha.900')}
-            fontFamily='M PLUS Rounded 1c'
             fontWeight="bold"
             ml={3}
           >
-            justin li
+            Justin Li
           </Text>
         </LogoBox>
       </a>

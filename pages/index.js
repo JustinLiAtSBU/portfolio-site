@@ -1,9 +1,8 @@
 import NextLink from 'next/link'
-import { Container, Box, Heading, Image, Link, Text, Button } from '@chakra-ui/react'
+import { Container, Box, Heading, Image, Link, Text } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 import Paragraph from '../components/paragraph'
-import { ChevronRightIcon } from '@chakra-ui/icons'
 import { BioSection, BioYear } from '../components/bio'
 
 const Page = () => {
@@ -42,13 +41,6 @@ const Page = () => {
               <Link>Magic Eight Ball</Link>
             </NextLink>
           </Paragraph>
-          <Box align="center" my={4}>
-            <NextLink href="/works">
-              <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
-                My Portfolio
-              </Button>
-            </NextLink>
-          </Box>
         </Section>
 
         <Section delay={0.2}>
@@ -73,6 +65,12 @@ const Page = () => {
               2021
             </BioYear>
             Started first full time job at Rightpoint as a software engineer
+          </BioSection>
+          <BioSection>
+            <BioYear>
+              2022
+            </BioYear>
+            Working as a software engineer at Northwestern Mutuals core team
           </BioSection>
         </Section>
 
